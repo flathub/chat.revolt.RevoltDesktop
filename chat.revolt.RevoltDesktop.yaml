@@ -7,7 +7,7 @@ base: org.electronjs.Electron2.BaseApp
 base-version: '21.08'
 
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node14
+  - org.freedesktop.Sdk.Extension.node16
 
 separate-locales: false
 command: revolt-desktop
@@ -36,17 +36,11 @@ modules:
   - name: revolt
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node14/bin
+      append-path: /usr/lib/sdk/node16/bin
       env:
-        XDG_CACHE_HOME: /run/build/revolt/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node14
+        npm_config_nodedir: /usr/lib/sdk/node16
     build-commands:
-      - yarn --offline
-      - yarn run build:bundle
-      - |
-        . ../flatpak-node/electron-builder-arch-args.sh
-        yarn run eb -- $ELECTRON_BUILDER_ARCH_ARGS --linux --dir
-      - cp -a dist/linux*unpacked /app/main
+      - cp -a revolt-desktop-1.0.3 /app/main
       - desktop-file-edit --set-icon=$FLATPAK_ID revolt-desktop.desktop
       - install -Dm644 revolt-desktop.desktop /app/share/applications/$FLATPAK_ID.desktop
       - install -Dm644 build/icons/icon.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
@@ -55,17 +49,17 @@ modules:
     subdir: main
     sources:
       - type: archive
-        url: https://github.com/revoltchat/desktop/archive/v1.0.2.tar.gz
-        sha256: d50a97712e32cc6d19553c471c6dffdf59ac5275e4b56428ea8eefab8f92d0bb
+        url: https://github.com/revoltchat/desktop/archive/v1.0.3.tar.gz
+        sha256: 862fba73fcc3161270f599fc1791d3b0b9b3fa697cee9e9f02cc7dbc4f7a64ce
         dest: main
+      - type: archive
+        url: https://github.com/revoltchat/desktop/releases/download/v1.0.3/revolt-desktop-1.0.3.tar.gz
+        sha256: 1c25450551614421e726cfa1cbc774955137b5917fb2d99c5f4e4f71efa98431
+        dest: main
+        strip-components: 0
       - type: script
         dest-filename: revolt-desktop.sh
         commands:
           - zypak-wrapper.sh /app/main/revolt-desktop "$@"
       - type: file
         path: chat.revolt.RevoltDesktop.metainfo.xml
-      - type: file
-        url: data:yarn-offline-mirror%20/run/build/revolt/flatpak-node/yarn-mirror%0A--install.offline%20true%0A--run.offline%20true%0A
-        dest: main
-        dest-filename: .yarnrc
-      - generated-sources.json

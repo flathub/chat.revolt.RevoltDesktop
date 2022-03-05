@@ -23,6 +23,17 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release date="2022-03-04" version="1.0.3">
+      <description>
+        Bug fixes and clean up:
+        <ul>
+          <li>Automate CI for publishing new releases.</li>
+          <li>Fix AppX icons</li>
+          <li>Update Discord RPC</li>
+          <li>Change default settings</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-08-11" version="1.0.2">
       <description>
         Fixes auto-update
