@@ -23,6 +23,21 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release date="2022-05-10" version="1.0.4">
+      <description>
+        mall quality of life improvements and minor bug fixes:
+        <ul>
+          <li>prevent launching multiple instances.</li>
+          <li>add a tray icon.</li>
+          <li>allow minimising the app to the tray.</li>
+          <li>allow zooming in with "CTRL + =".</li>
+          <li>artifact like shapes on start.</li>
+          <li>add spell check</li>
+          <li>bundle window icon correctly</li>
+          <li>generate DMG rather than ZIP</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-03-04" version="1.0.3">
       <description>
         Bug fixes and clean up:
