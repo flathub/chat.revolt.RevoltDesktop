@@ -19,13 +19,13 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main window</caption>
-      <image>https://raw.githubusercontent.com/revoltchat/.github/master/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/revoltchat/.github/master/screenshots/2022-03.png</image>
     </screenshot>
   </screenshots>
   <releases>
     <release date="2022-05-10" version="1.0.4">
       <description>
-        mall quality of life improvements and minor bug fixes:
+        Small quality of life improvements and minor bug fixes:
         <ul>
           <li>prevent launching multiple instances.</li>
           <li>add a tray icon.</li>
