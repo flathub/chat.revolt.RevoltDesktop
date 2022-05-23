@@ -49,12 +49,12 @@ modules:
     subdir: main
     sources:
       - type: archive
-        url: https://github.com/revoltchat/desktop/archive/v1.0.4.tar.gz
-        sha256: e9ed82773677a9ec1133dbd0fd0b1efa346cb6da44d15ff28879256333c3ca64
+        url: https://github.com/revoltchat/desktop/archive/v1.0.5.tar.gz
+        sha256: 4130d8acc7d8a7d10a5041aa5bfcba54233861beefb8181c4e5dbb1357090a89
         dest: main
       - type: archive
-        url: https://github.com/revoltchat/desktop/releases/download/v1.0.4/revolt-desktop-1.0.4.tar.gz
-        sha256: 943459bdcd843befaba8d87bf9aa7947085aee71ba43759df55fa3808587831d
+        url: https://github.com/revoltchat/desktop/releases/download/v1.0.5/revolt-desktop-1.0.5.tar.gz
+        sha256: 34a64a341393ccadf847a69f6dd3f28d8d42af552cc89ae078ecd20bcae1c44c
         dest: main
         strip-components: 0
       - type: script
