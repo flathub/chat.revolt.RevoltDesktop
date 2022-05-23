@@ -40,7 +40,7 @@ modules:
       env:
         npm_config_nodedir: /usr/lib/sdk/node16
     build-commands:
-      - cp -a revolt-desktop-1.0.4 /app/main
+      - cp -a revolt-desktop-1.0.5 /app/main
       - desktop-file-edit --set-icon=$FLATPAK_ID revolt-desktop.desktop
       - install -Dm644 revolt-desktop.desktop /app/share/applications/$FLATPAK_ID.desktop
       - install -Dm644 build/icons/icon.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
