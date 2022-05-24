@@ -23,6 +23,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release date="2022-05-23" version="1.0.5">
+      <description>
+        Bug fixes:
+        <ul>
+          <li>fix: use getConfig() instead of store.getConfig to prevent error on quit.</li>
+          <li>feat: use monochrome tray icon and fix tray icon on macOS.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-05-10" version="1.0.4">
       <description>
         Small quality of life improvements and minor bug fixes:
