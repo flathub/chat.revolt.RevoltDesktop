@@ -23,6 +23,16 @@
     </screenshot>
   </screenshots>
   <releases>
+		<release date="2022-09-03" version="1.0.6">
+			<description>
+				<p>Bug fixes:</p>
+				<ul>
+					<li>fix: wrong app icon</li>
+					<li>fix: correctly restore from tray icon on second instance start</li>
+					<li>fix: restart from tray icon</li>
+				</ul>
+			</description>
+		</release>
     <release date="2022-05-23" version="1.0.5">
       <description>
         Bug fixes:

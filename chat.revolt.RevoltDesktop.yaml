@@ -7,59 +7,59 @@ base: org.electronjs.Electron2.BaseApp
 base-version: '21.08'
 
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node16
+- org.freedesktop.Sdk.Extension.node16
 
 separate-locales: false
 command: revolt-desktop
 finish-args:
   # Xorg access for graphics
-  - --share=ipc
-  - --socket=x11
+- --share=ipc
+- --socket=x11
   # Required to provide Call functionality
-  - --socket=pulseaudio
-  - --device=all
+- --socket=pulseaudio
+- --device=all
   # Network access
-  - --share=network
+- --share=network
   # Local filesystem
-  - --filesystem=xdg-documents:ro
-  - --filesystem=xdg-pictures:ro
-  - --filesystem=xdg-videos:ro
+- --filesystem=xdg-documents:ro
+- --filesystem=xdg-pictures:ro
+- --filesystem=xdg-videos:ro
 
   # Required for notifications in various desktop environments
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.kde.StatusNotifierWatcher
+- --talk-name=org.freedesktop.Notifications
+- --talk-name=org.kde.StatusNotifierWatcher
   # Required for advanced input methods e.g. writing CJK languages
-  - --talk-name=org.freedesktop.portal.Fcitx
+- --talk-name=org.freedesktop.portal.Fcitx
 
 modules:
   # Build and install revolt
-  - name: revolt
-    buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/node16/bin
-      env:
-        npm_config_nodedir: /usr/lib/sdk/node16
-    build-commands:
-      - cp -a revolt-desktop-1.0.5 /app/main
-      - desktop-file-edit --set-icon=$FLATPAK_ID revolt-desktop.desktop
-      - install -Dm644 revolt-desktop.desktop /app/share/applications/$FLATPAK_ID.desktop
-      - install -Dm644 build/icons/icon.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
-      - install -Dm644 ../$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
-      - install -Dm755 ../revolt-desktop.sh /app/bin/revolt-desktop
-    subdir: main
-    sources:
-      - type: archive
-        url: https://github.com/revoltchat/desktop/archive/v1.0.5.tar.gz
-        sha256: 4130d8acc7d8a7d10a5041aa5bfcba54233861beefb8181c4e5dbb1357090a89
-        dest: main
-      - type: archive
-        url: https://github.com/revoltchat/desktop/releases/download/v1.0.5/revolt-desktop-1.0.5.tar.gz
-        sha256: 34a64a341393ccadf847a69f6dd3f28d8d42af552cc89ae078ecd20bcae1c44c
-        dest: main
-        strip-components: 0
-      - type: script
-        dest-filename: revolt-desktop.sh
-        commands:
-          - zypak-wrapper.sh /app/main/revolt-desktop "$@"
-      - type: file
-        path: chat.revolt.RevoltDesktop.metainfo.xml
+- name: revolt
+  buildsystem: simple
+  build-options:
+    append-path: /usr/lib/sdk/node16/bin
+    env:
+      npm_config_nodedir: /usr/lib/sdk/node16
+  build-commands:
+  - cp -a revolt-desktop-1.0.6 /app/main
+  - desktop-file-edit --set-icon=$FLATPAK_ID revolt-desktop.desktop
+  - install -Dm644 revolt-desktop.desktop /app/share/applications/$FLATPAK_ID.desktop
+  - install -Dm644 build/icons/icon.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
+  - install -Dm644 ../$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
+  - install -Dm755 ../revolt-desktop.sh /app/bin/revolt-desktop
+  subdir: main
+  sources:
+  - type: archive
+    url: https://github.com/revoltchat/desktop/archive/v1.0.6.tar.gz
+    sha256: 84c06e3924e53d3272f7c2be9832a259f710c75a7a36d2732c3cb7a0e119e366
+    dest: main
+  - type: archive
+    url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
+    sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
+    dest: main
+    strip-components: 0
+  - type: script
+    dest-filename: revolt-desktop.sh
+    commands:
+    - zypak-wrapper.sh /app/main/revolt-desktop "$@"
+  - type: file
+    path: chat.revolt.RevoltDesktop.metainfo.xml
