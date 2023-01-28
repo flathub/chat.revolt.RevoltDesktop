@@ -33,9 +33,9 @@ modules:
 - name: revolt
   buildsystem: simple
   build-options:
-    append-path: /usr/lib/sdk/node16/bin
+    append-path: /usr/lib/sdk/node18/bin
     env:
-      npm_config_nodedir: /usr/lib/sdk/node16
+      npm_config_nodedir: /usr/lib/sdk/node18
   sources:
 
   - type: archive
