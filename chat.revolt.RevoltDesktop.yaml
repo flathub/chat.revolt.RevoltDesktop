@@ -50,12 +50,13 @@ modules:
   - type: file
     path: ./chat.revolt.RevoltDesktop.metainfo.xml
   - type: file
-    path: ./extras/icon256.png
+    url: https://raw.githubusercontent.com/revoltchat/desktop/master/assets/icon.png
+    sha256: db64c2f3ab6714771638d06f3c0156e42c82ff6cbd041370b23aa691ab7fdeec
 
   build-commands:
   - cp -a revolt-desktop-1.0.6 /app/bin/
   - install -Dm775 run.sh /app/bin/run.sh
   - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
   - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
-  - install -D icon256.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
+  - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
 
