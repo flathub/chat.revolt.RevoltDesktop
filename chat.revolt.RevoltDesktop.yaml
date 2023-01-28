@@ -47,7 +47,7 @@ modules:
     commands:
     - zypak-wrapper.sh /app/bin/revolt-desktop "$@"
   - type: file
-    path: ./extras/chat.revolt.RevoltDesktop.desktop
+    path: ./chat.revolt.RevoltDesktop.desktop
   - type: file
     path: ./chat.revolt.RevoltDesktop.metainfo.xml
   - type: file
