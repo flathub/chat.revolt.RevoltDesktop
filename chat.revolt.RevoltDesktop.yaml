@@ -38,9 +38,10 @@ modules:
       npm_config_nodedir: /usr/lib/sdk/node16
   sources:
 
-  - type: file
-    url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/Revolt-1.0.6.AppImage
-    sha256: 77032c92ecd147b5b8e696540e6e7b0e9c158f9426cde3dd61b0c2ea47108bfa
+  - type: archive
+    url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
+    sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
+    strip-components: 0
   - type: file
     dest-filename: run.sh
     path: ./extras/run.sh
@@ -52,10 +53,9 @@ modules:
     path: ./extras/icon256.png
 
   build-commands:
+  - cp -a revolt-desktop-1.0.6 /app/bin/
   - install -Dm775 run.sh /app/bin/run.sh
   - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
   - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
   - install -D icon256.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
-  - chmod +x Revolt-*.AppImage
-  - ./Revolt-*.AppImage --appimage-extract
-  - mv squashfs-root /app/bin/revolt
+
