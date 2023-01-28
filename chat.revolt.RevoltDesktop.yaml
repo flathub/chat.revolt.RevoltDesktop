@@ -45,7 +45,7 @@ modules:
   - type: script
     dest-filename: revolt-desktop.sh
     commands:
-    - zypak-wrapper.sh /app/bin/revolt-desktop-1.0.6/revolt-desktop "$@"
+    - zypak-wrapper.sh /app/bin/revolt-desktop "$@"
   - type: file
     path: ./extras/chat.revolt.RevoltDesktop.desktop
   - type: file
