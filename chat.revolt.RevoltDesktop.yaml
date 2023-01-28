@@ -56,7 +56,7 @@ modules:
 
   build-commands:
   - cp -a revolt-desktop-1.0.6 /app/bin/
-  - install -Dm775 run.sh /app/bin/run.sh
+  - install -Dm775 revolt-desktop.sh /app/bin/revolt-desktop.sh
   - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
   - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
   - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
