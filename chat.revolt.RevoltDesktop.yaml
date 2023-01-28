@@ -41,11 +41,11 @@ modules:
   - type: archive
     url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
     sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
-    dest: bin
+    strip-components: 0
   - type: script
     dest-filename: revolt-desktop.sh
     commands:
-    - zypak-wrapper.sh /app/bin/revolt-desktop "$@"
+    - zypak-wrapper.sh /app/bin/revolt-desktop-1.0.6/revolt-desktop "$@"
   - type: file
     path: ./chat.revolt.RevoltDesktop.desktop
   - type: file
@@ -55,9 +55,9 @@ modules:
     sha256: db64c2f3ab6714771638d06f3c0156e42c82ff6cbd041370b23aa691ab7fdeec
 
   build-commands:
+  - cp -a revolt-desktop-1.0.6 /app/bin/
   - install -Dm775 revolt-desktop.sh /app/bin/revolt-desktop.sh
   - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
   - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
   - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
 
-  
