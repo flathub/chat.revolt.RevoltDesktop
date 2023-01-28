@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Revolt
+Comment=User-first, privacy focused chat platform.
+Exec=revolt-desktop.sh
+Terminal=false
+Type=Application
+Icon=chat.revolt.RevoltDesktop
+Categories=Network;InstantMessaging
+StartupWMClass=revolt-desktop
+X-Desktop-File-Install-Version=0.26
+X-Flatpak=chat.revolt.RevoltDesktop
