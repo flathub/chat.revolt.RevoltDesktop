@@ -1,16 +1,13 @@
 app-id: chat.revolt.RevoltDesktop
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
-
 base: org.electronjs.Electron2.BaseApp
-base-version: '21.08'
-
+base-version: '22.08'
 sdk-extensions:
-- org.freedesktop.Sdk.Extension.node16
-
-separate-locales: false
+- org.freedesktop.Sdk.Extension.node18
 command: revolt-desktop
+separate-locales: false
 finish-args:
   # Xorg access for graphics
 - --share=ipc
@@ -36,30 +33,30 @@ modules:
 - name: revolt
   buildsystem: simple
   build-options:
-    append-path: /usr/lib/sdk/node16/bin
+    append-path: /usr/lib/sdk/node18/bin
     env:
-      npm_config_nodedir: /usr/lib/sdk/node16
+      npm_config_nodedir: /usr/lib/sdk/node18
   build-commands:
-  - cp -a revolt-desktop-1.0.6 /app/main
-  - desktop-file-edit --set-icon=$FLATPAK_ID revolt-desktop.desktop
-  - install -Dm644 revolt-desktop.desktop /app/share/applications/$FLATPAK_ID.desktop
-  - install -Dm644 build/icons/icon.png /app/share/icons/hicolor/512x512/apps/$FLATPAK_ID.png
-  - install -Dm644 ../$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
-  - install -Dm755 ../revolt-desktop.sh /app/bin/revolt-desktop
-  subdir: main
+  - cp -a revolt-desktop /app/
+  - install -Dm775 revolt-desktop.sh /app/bin/revolt-desktop
+  - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
+  - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
+  - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
+
   sources:
-  - type: archive
-    url: https://github.com/revoltchat/desktop/archive/v1.0.6.tar.gz
-    sha256: 84c06e3924e53d3272f7c2be9832a259f710c75a7a36d2732c3cb7a0e119e366
-    dest: main
   - type: archive
     url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
     sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
-    dest: main
-    strip-components: 0
+    dest: revolt-desktop
   - type: script
     dest-filename: revolt-desktop.sh
     commands:
-    - zypak-wrapper.sh /app/main/revolt-desktop "$@"
+    # TMPDIR env variable fixes the tray icon issue (#6)
+    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop "$@"
+  - type: file
+    path: chat.revolt.RevoltDesktop.desktop
   - type: file
     path: chat.revolt.RevoltDesktop.metainfo.xml
+  - type: file
+    url: https://raw.githubusercontent.com/revoltchat/desktop/master/assets/icon.png
+    sha256: db64c2f3ab6714771638d06f3c0156e42c82ff6cbd041370b23aa691ab7fdeec
