@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Revolt
 Comment=User-first, privacy focused chat platform.
-Exec=revolt-desktop.sh
+Exec=revolt-desktop
 Terminal=false
 Type=Application
 Icon=chat.revolt.RevoltDesktop
