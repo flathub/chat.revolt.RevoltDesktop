@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '24.08'
 sdk-extensions:
-- org.freedesktop.Sdk.Extension.node18
+- org.freedesktop.Sdk.Extension.node22
 command: revolt-desktop
 separate-locales: false
 finish-args:
@@ -31,7 +31,7 @@ modules:
 - name: revolt
   buildsystem: simple
   build-options:
-    append-path: /usr/lib/sdk/node18/bin
+    append-path: /usr/lib/sdk/node22/bin
     env:
       npm_config_nodedir: /usr/lib/sdk/node22
   build-commands:
