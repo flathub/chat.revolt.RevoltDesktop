@@ -33,7 +33,7 @@ modules:
   build-options:
     append-path: /usr/lib/sdk/node18/bin
     env:
-      npm_config_nodedir: /usr/lib/sdk/node18
+      npm_config_nodedir: /usr/lib/sdk/node22
   build-commands:
   - cp -a revolt-desktop /app/
   - install -Dm775 revolt-desktop.sh /app/bin/revolt-desktop
