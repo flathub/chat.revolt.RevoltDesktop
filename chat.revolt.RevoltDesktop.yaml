@@ -23,7 +23,6 @@ finish-args:
 - --filesystem=xdg-videos:ro
 
   # Required for notifications in various desktop environments
-- --talk-name=org.freedesktop.Notifications
 - --talk-name=org.kde.StatusNotifierWatcher
 
 modules:
