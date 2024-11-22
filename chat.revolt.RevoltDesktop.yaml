@@ -46,6 +46,12 @@ modules:
     url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
     sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
     dest: revolt-desktop
+    x-checker-data:
+      type: json
+      url: https://api.github.com/repos/revoltchat/desktop/releases/latest
+      tag-query: .tag_name
+      version-query: .tag_name | sub("^v"; "")
+      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + ".tar.gz"'
   - type: script
     dest-filename: revolt-desktop.sh
     commands:
