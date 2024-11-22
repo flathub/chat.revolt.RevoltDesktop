@@ -9,9 +9,11 @@ sdk-extensions:
 command: revolt-desktop
 separate-locales: false
 finish-args:
-  # Xorg access for graphics
 - --share=ipc
-- --socket=x11
+  # Wayland socket for displaying the app
+- --socket=wayland
+  # X11 fallback socket in case the user is not running Wayland
+- --socket=fallback-x11
   # Required to provide Call functionality
 - --socket=pulseaudio
 - --device=all
@@ -50,7 +52,7 @@ modules:
     dest-filename: revolt-desktop.sh
     commands:
     # TMPDIR env variable fixes the tray icon issue (#6)
-    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop "$@"
+    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
   - type: file
     path: chat.revolt.RevoltDesktop.desktop
   - type: file
