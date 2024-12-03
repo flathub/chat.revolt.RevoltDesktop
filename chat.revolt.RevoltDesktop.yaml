@@ -28,6 +28,9 @@ finish-args:
 - --talk-name=org.freedesktop.Notifications
 - --talk-name=org.kde.StatusNotifierWatcher
 
+  # Enable Wayland support if available
+- --env=ELECTRON_OZONE_PLATFORM_HINT=auto
+
 modules:
   # Build and install revolt
 - name: revolt
@@ -52,7 +55,7 @@ modules:
     dest-filename: revolt-desktop.sh
     commands:
     # TMPDIR env variable fixes the tray icon issue (#6)
-    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop "$@"
   - type: file
     path: chat.revolt.RevoltDesktop.desktop
   - type: file
