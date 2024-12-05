@@ -51,6 +51,12 @@ modules:
     url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8.tar.gz
     sha256: 60738e4fc2574ce1d2d4ff4ca18dfac93e2f53d81bcbbbb4e40f5751f428a4ae
     dest: revolt-desktop
+    x-checker-data:
+      type: json
+      url: https://api.github.com/repos/revoltchat/desktop/releases/latest
+      tag-query: .tag_name
+      version-query: .tag_name | sub("^v"; "")
+      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + ".tar.gz"'
   - type: archive
     only-arches: [aarch64]
     url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8-arm64.tar.gz
@@ -61,7 +67,7 @@ modules:
       url: https://api.github.com/repos/revoltchat/desktop/releases/latest
       tag-query: .tag_name
       version-query: .tag_name | sub("^v"; "")
-      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + ".tar.gz"'
+      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + "-arm64.tar.gz"'
   - type: script
     dest-filename: revolt-desktop.sh
     commands:
