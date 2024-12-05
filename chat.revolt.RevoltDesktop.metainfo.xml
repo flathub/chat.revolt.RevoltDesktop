@@ -23,6 +23,14 @@
     </screenshot>
   </screenshots>
   <releases>
+		<release date="2024-11-06" version="1.0.8">
+			<description>
+				<p>Changes:</p>
+				<ul>
+					<li>Bumped Electron to version 33</li>
+				</ul>
+			</description>
+		</release>
 		<release date="2022-09-03" version="1.0.6">
 			<description>
 				<p>Bug fixes:</p>
