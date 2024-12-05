@@ -10,7 +10,7 @@
   <developer id="chat.revolt">
     <name>Paul Makles</name>
   </developer>
-  <summary>Revolt desktop app</summary>
+  <summary>Open source user-first messaging platform</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>AGPL-3.0</project_license>
   <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/revoltchat/desktop/master/build/icons/icon.png</icon>
