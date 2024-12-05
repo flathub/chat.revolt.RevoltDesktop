@@ -9,9 +9,11 @@ sdk-extensions:
 command: revolt-desktop
 separate-locales: false
 finish-args:
-  # Xorg access for graphics
 - --share=ipc
-- --socket=x11
+  # Wayland socket for displaying the app
+- --socket=wayland
+  # X11 fallback socket in case the user is not running Wayland
+- --socket=fallback-x11
   # Required to provide Call functionality
 - --socket=pulseaudio
 - --device=all
@@ -23,8 +25,10 @@ finish-args:
 - --filesystem=xdg-videos:ro
 
   # Required for notifications in various desktop environments
-- --talk-name=org.freedesktop.Notifications
 - --talk-name=org.kde.StatusNotifierWatcher
+
+  # Enable Wayland support if available
+- --env=ELECTRON_OZONE_PLATFORM_HINT=auto
 
 modules:
   # Build and install revolt
