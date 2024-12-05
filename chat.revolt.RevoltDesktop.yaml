@@ -9,9 +9,11 @@ sdk-extensions:
 command: revolt-desktop
 separate-locales: false
 finish-args:
-  # Xorg access for graphics
 - --share=ipc
-- --socket=x11
+  # Wayland socket for displaying the app
+- --socket=wayland
+  # X11 fallback socket in case the user is not running Wayland
+- --socket=fallback-x11
   # Required to provide Call functionality
 - --socket=pulseaudio
 - --device=all
@@ -23,8 +25,10 @@ finish-args:
 - --filesystem=xdg-videos:ro
 
   # Required for notifications in various desktop environments
-- --talk-name=org.freedesktop.Notifications
 - --talk-name=org.kde.StatusNotifierWatcher
+
+  # Enable Wayland support if available
+- --env=ELECTRON_OZONE_PLATFORM_HINT=auto
 
 modules:
   # Build and install revolt
@@ -43,8 +47,14 @@ modules:
 
   sources:
   - type: archive
-    url: https://github.com/revoltchat/desktop/releases/download/v1.0.6/revolt-desktop-1.0.6.tar.gz
-    sha256: eba79090ca83fa0d549cb3df062a44c76b940cdd96aec9d7b7823a1399f694ad
+    only-arches: [x86_64]
+    url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8.tar.gz
+    sha256: 60738e4fc2574ce1d2d4ff4ca18dfac93e2f53d81bcbbbb4e40f5751f428a4ae
+    dest: revolt-desktop
+  - type: archive
+    only-arches: [aarch64]
+    url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8-arm64.tar.gz
+    sha256: 758bc74914de8ff2a9c4faa6a3f09a19ef93cd65d2310da7450a3c082c6407da
     dest: revolt-desktop
     x-checker-data:
       type: json
