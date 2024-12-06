@@ -29,6 +29,8 @@ finish-args:
 
   # Enable Wayland support if available
 - --env=ELECTRON_OZONE_PLATFORM_HINT=auto
+  # Ensure that custom mouse cursors are used
+- --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 
 modules:
   # Build and install revolt
