@@ -7,14 +7,15 @@
   </provides>
   <launchable type="desktop-id">chat.revolt.RevoltDesktop.desktop</launchable>
   <name>Revolt</name>
-  <developer_name>Paul Makles</developer_name>
-  <summary>Revolt desktop app</summary>
+  <developer id="chat.revolt">
+    <name>Paul Makles</name>
+  </developer>
+  <summary>Open source user-first messaging platform</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>AGPL-3.0</project_license>
-  <url type="homepage">https://revolt.chat</url>
   <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/revoltchat/desktop/master/build/icons/icon.png</icon>
   <description>
-    <p>User-first chat platform built with modern web technologies.</p>
+    <p>Revolt is one of the best ways to stay connected with your friends and community without sacrificing any usability. We focus only on the user, and you can be sure that your conversations are confidential and your data is secure.</p>
   </description>
   <screenshots>
     <screenshot type="default">
@@ -23,6 +24,14 @@
     </screenshot>
   </screenshots>
   <releases>
+		<release date="2024-11-06" version="1.0.8">
+			<description>
+				<p>Changes:</p>
+				<ul>
+					<li>Bumped Electron to version 33</li>
+				</ul>
+			</description>
+		</release>
 		<release date="2022-09-03" version="1.0.6">
 			<description>
 				<p>Bug fixes:</p>
@@ -75,9 +84,13 @@
     </release>
   </releases>
   <url type="bugtracker">https://github.com/revoltchat/desktop/issues</url>
+  <url type="homepage">https://revolt.chat</url>
   <url type="donation">https://insrt.uk/donate</url>
-  <url type="help">https://github.com/revoltchat/desktop</url>
-  <url type="translate">https://github.com/revoltchat/revite</url>
+  <url type="contact">https://support.revolt.chat/contact</url>
+  <url type="faq">https://developers.revolt.chat/faq</url>
+  <url type="translate">https://translate.revolt.chat/</url>
+  <url type="contribute">https://developers.revolt.chat/contrib.html</url>
+  <url type="vcs-browser">https://github.com/revoltchat/desktop.git</url>
   <update_contact>dusan.simic1810@gmail.com</update_contact>
   <content_rating type="oars-1.1">
     <content_attribute id="social-chat">intense</content_attribute>
