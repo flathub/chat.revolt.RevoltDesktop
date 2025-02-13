@@ -14,6 +14,10 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>AGPL-3.0</project_license>
   <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/revoltchat/desktop/master/build/icons/icon.png</icon>
+  <branding>
+    <color type="primary" scheme_preference="light">#FF005C</color>
+    <color type="primary" scheme_preference="dark">#150E2A</color>
+  </branding>
   <description>
     <p>Revolt is one of the best ways to stay connected with your friends and community without sacrificing any usability. We focus only on the user, and you can be sure that your conversations are confidential and your data is secure.</p>
   </description>
