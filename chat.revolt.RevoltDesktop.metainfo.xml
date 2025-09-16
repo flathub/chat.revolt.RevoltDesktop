@@ -44,7 +44,7 @@
 		</release>
     <release date="2022-05-23" version="1.0.5">
       <description>
-        Bug fixes:
+        <p>Bug fixes:</p>
         <ul>
           <li>fix: use getConfig() instead of store.getConfig to prevent error on quit.</li>
           <li>feat: use monochrome tray icon and fix tray icon on macOS.</li>
@@ -53,7 +53,7 @@
     </release>
     <release date="2022-05-10" version="1.0.4">
       <description>
-        Small quality of life improvements and minor bug fixes:
+        <p>Small quality of life improvements and minor bug fixes:</p>
         <ul>
           <li>prevent launching multiple instances.</li>
           <li>add a tray icon.</li>
@@ -68,7 +68,7 @@
     </release>
     <release date="2022-03-04" version="1.0.3">
       <description>
-        Bug fixes and clean up:
+        <p>Bug fixes and clean up:</p>
         <ul>
           <li>Automate CI for publishing new releases.</li>
           <li>Fix AppX icons</li>
@@ -79,13 +79,13 @@
     </release>
     <release date="2021-08-11" version="1.0.2">
       <description>
-        Fixes auto-update
+        <p>Fixes auto-update</p>
       </description>
     </release>
   </releases>
   <url type="bugtracker">https://github.com/revoltchat/desktop/issues</url>
   <url type="homepage">https://revolt.chat</url>
-  <url type="donation">https://insrt.uk/donate</url>
+  <url type="donation">https://wiki.revolt.chat/notes/project/financial-support</url>
   <url type="contact">https://support.revolt.chat/contact</url>
   <url type="faq">https://developers.revolt.chat/faq</url>
   <url type="translate">https://translate.revolt.chat/</url>
