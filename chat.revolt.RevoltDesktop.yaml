@@ -1,11 +1,11 @@
 app-id: chat.revolt.RevoltDesktop
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '24.08'
+base-version: '25.08'
 sdk-extensions:
-- org.freedesktop.Sdk.Extension.node22
+- org.freedesktop.Sdk.Extension.node24
 command: revolt-desktop
 separate-locales: false
 finish-args:
