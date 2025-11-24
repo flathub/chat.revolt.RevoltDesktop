@@ -98,4 +98,11 @@
     <content_attribute id="social-audio">intense</content_attribute>
     <content_attribute id="social-contacts">intense</content_attribute>
   </content_rating>
+  <keywords>
+    <keyword>messaging</keyword>
+    <keyword>instant messaging</keyword>
+    <keyword>open source chat</keyword>
+    <keyword>secure messaging</keyword>
+    <keyword>confidential communication</keyword>
+  </keywords>
 </component>
