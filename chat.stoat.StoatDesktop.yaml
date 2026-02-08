@@ -1,4 +1,4 @@
-app-id: chat.revolt.RevoltDesktop
+app-id: chat.stoat.StoatDesktop
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
@@ -6,7 +6,7 @@ base: org.electronjs.Electron2.BaseApp
 base-version: '25.08'
 sdk-extensions:
 - org.freedesktop.Sdk.Extension.node24
-command: revolt-desktop
+command: stoat-desktop
 separate-locales: false
 finish-args:
 - --share=ipc
@@ -33,52 +33,52 @@ finish-args:
 - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 
 modules:
-  # Build and install revolt
-- name: revolt
+  # Build and install stoat
+- name: stoat
   buildsystem: simple
   build-options:
     append-path: /usr/lib/sdk/node22/bin
     env:
       npm_config_nodedir: /usr/lib/sdk/node22
   build-commands:
-  - cp -a revolt-desktop /app/
-  - install -Dm775 revolt-desktop.sh /app/bin/revolt-desktop
-  - install -D chat.revolt.RevoltDesktop.desktop -t /app/share/applications/
+  - cp -a stoat-desktop /app/
+  - install -Dm775 stoat-desktop.sh /app/bin/stoat-desktop
+  - install -D chat.stoat.StoatDesktop.desktop -t /app/share/applications/
   - install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo/
-  - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.revolt.RevoltDesktop.png
+  - install -D icon.png /app/share/icons/hicolor/256x256/apps/chat.stoat.StoatDesktop.png
 
   sources:
   - type: archive
     only-arches: [x86_64]
-    url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8.tar.gz
-    sha256: 60738e4fc2574ce1d2d4ff4ca18dfac93e2f53d81bcbbbb4e40f5751f428a4ae
-    dest: revolt-desktop
+    url: https://github.com/stoatchat/for-desktop/releases/download/v1.1.12/Stoat-linux-x64-1.1.12.zip
+    sha256: eabbdb9a84867669725d84bb1b7884ea752e2f82076c34ca5a249e6c0557ab6f
+    dest: stoat-desktop
     x-checker-data:
       type: json
-      url: https://api.github.com/repos/revoltchat/desktop/releases/latest
+      url: https://api.github.com/repos/stoatchat/for-desktop/releases/latest
       tag-query: .tag_name
       version-query: .tag_name | sub("^v"; "")
-      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + ".tar.gz"'
+      url-query: '"https://github.com/stoatchat/for-desktop/releases/download/" + $tag + "/Stoat-linux-x64-" + $version + ".zip"'
   - type: archive
     only-arches: [aarch64]
-    url: https://github.com/revoltchat/desktop/releases/download/v1.0.8/revolt-desktop-1.0.8-arm64.tar.gz
-    sha256: 758bc74914de8ff2a9c4faa6a3f09a19ef93cd65d2310da7450a3c082c6407da
+    url: https://github.com/stoatchat/for-desktop/releases/download/v1.1.12/Stoat-linux-arm64-1.1.12.zip
+    sha256: d5fd93f977abd813e6855756d814ad29b10f6255cd813f34565bf31aa83343c4
     dest: revolt-desktop
     x-checker-data:
       type: json
-      url: https://api.github.com/repos/revoltchat/desktop/releases/latest
+      url: https://api.github.com/repos/stoatchat/for-desktop/releases/latest
       tag-query: .tag_name
       version-query: .tag_name | sub("^v"; "")
-      url-query: '"https://github.com/revoltchat/desktop/releases/download/" + $tag + "/revolt-desktop-" + $version + "-arm64.tar.gz"'
+      url-query: '"https://github.com/stoatchat/for-desktop/releases/download/" + $tag + "/Stoat-linux-arm64-" + $version + ".zip"'
   - type: script
-    dest-filename: revolt-desktop.sh
+    dest-filename: stoat-desktop.sh
     commands:
     # TMPDIR env variable fixes the tray icon issue (#6)
-    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.revolt.RevoltDesktop}" zypak-wrapper /app/revolt-desktop/revolt-desktop "$@"
+    - env TMPDIR="$XDG_RUNTIME_DIR/app/${FLATPAK_ID:-chat.stoat.StoatDesktop}" zypak-wrapper /app/stoat-desktop/stoat-desktop "$@"
   - type: file
-    path: chat.revolt.RevoltDesktop.desktop
+    path: chat.stoat.StoatDesktop.desktop
   - type: file
-    path: chat.revolt.RevoltDesktop.metainfo.xml
+    path: chat.stoat.StoatDesktop.metainfo.xml
   - type: file
     url: https://raw.githubusercontent.com/revoltchat/desktop/master/assets/icon.png
     sha256: db64c2f3ab6714771638d06f3c0156e42c82ff6cbd041370b23aa691ab7fdeec
